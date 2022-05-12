@@ -1,14 +1,16 @@
 class Solution {
 public:
-    bool check(int n){
-        if(n==4)return true;
+    bool flag=true;
+    void check(int n){
+        if(n<1)return;
         check(n/4);
-        return false;
+        if(n%4!=0&&n!=1)flag=false;
+
     }
-    bool isPowerOfFour(int n) {
-        for(int i=0;i<=16;i++){
-            if(pow(4,i)==n)return true;
-        }
-        return false;
+    bool isPowerOfFour(long n) {
+        if(n==1)return true;
+        if(n<1)return false;
+        check(n);
+        return flag;
     }
 };
