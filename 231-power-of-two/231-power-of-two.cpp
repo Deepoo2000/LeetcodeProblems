@@ -1,13 +1,15 @@
 class Solution {
 public:
-    bool power(int n){
-      return false;  
+    bool flag = true;
+    void power(int n){
+      if(n<1)return;
+        power(n/2);
+        if(n%2!=0&&n!=1)flag=false;
     }
     bool isPowerOfTwo(int n) {
+        if(n==1)return true;
         if(n<1)return false;
-    for(int i=0;i<32;i++){
-        if(pow(2,i)==n)return true;
-    }        
-        return false;
+        power(n);
+        return flag;
     }
 };
