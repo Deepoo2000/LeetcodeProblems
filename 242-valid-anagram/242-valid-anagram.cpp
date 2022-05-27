@@ -3,7 +3,6 @@ public:
     bool isAnagram(string s, string t) {
         sort(s.begin(),s.end());
         sort(t.begin(),t.end());
-        if(t!= s)return 0;
-        return 1;
+        return (s==t);
     }
 };
