@@ -4,15 +4,14 @@ public:
         int n = mat.size();
         int i = 0;
         int ans = 0;
-        while(i < n){
-            ans += mat[i][i];
-            i++;
-        }
-        i =0;
+        int k = 0;
         int j = n - 1;
-        while(i < n && j >= 0){
-            ans += mat[i][j];
-            i++, j--;
+        while(i < n && k < n && j >= 0){
+            ans += mat[i][i];
+            ans += mat[k][j];
+            k++;
+            j--;
+            i++;
         }
         if(mat.size()%2!=0){
              i = mat.size()/2;
