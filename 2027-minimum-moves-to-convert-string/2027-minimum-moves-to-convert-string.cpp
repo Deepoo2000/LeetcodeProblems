@@ -1,22 +1,15 @@
 class Solution {
 public:
     int minimumMoves(string s) {
-        int index = 0, count = 0;
-        for (int i = 0; i < s.size() - 2; i++) {
-            if(s[i]=='X'){
-            for (int j = i; j <= i + 2; j++) {
-                if (s[j] == 'X') {
-                    count++;
-                    s[j] = 'O';
-                }
+        int i = 0, count = 0;
+        int n = s.size();
+        while (i < n) {
+            if (s[i] == 'X') {
+                count++;
+                i += 3;
             }
-            if (count) {
-                index++,count=0;
-            }
-            }
-
+            else i++;
         }
-        if(s[s.size()-1]=='X'||s[s.size()-2]=='X')index++;
-        return index;
+        return count;
     }
 };
