@@ -6,8 +6,7 @@ public:
         //return ans;
         int ans = 0;
         for(int i = 0; i < columnTitle.size(); i++){
-            int s = (columnTitle[i] - 'A') + 1;
-            ans = (ans * 26) + s;
+            ans = (ans * 26) + (columnTitle[i] - 64);
         }
         return ans;
     }
