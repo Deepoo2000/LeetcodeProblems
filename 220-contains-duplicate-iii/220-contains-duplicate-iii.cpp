@@ -9,7 +9,7 @@ bool containsNearbyAlmostDuplicate(vector<int>& nums, int k, int t) {
         sort(v.begin(),v.end());
         for(int i=0;i<v.size();i++){
             for(int j=i+1;j<nums.size() && abs(v[i].first-v[j].first)<=t;j++){
-                if(v[i].second!=v[j].second && abs(v[i].second-v[j].second)<=k)
+                if(abs(v[i].second-v[j].second)<=k)
                     return true;
             }
         }
