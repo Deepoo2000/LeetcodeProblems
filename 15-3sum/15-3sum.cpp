@@ -21,6 +21,7 @@ public:
                                 v.clear();
                                 while (j < nums.size() - 1 && nums[j] == nums[j + 1])j++;
                                 while (i < nums.size() - 1 && nums[i] == nums[i + 1])i++;
+                                break;
                             }
                         }
                     }
