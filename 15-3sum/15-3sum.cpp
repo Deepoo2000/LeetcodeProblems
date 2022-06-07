@@ -8,18 +8,20 @@ public:
         for (int i = 0; i < nums.size(); i++)mp[nums[i]].push_back(i);
         for (int i = 0; i < nums.size(); i++) {
             vector<int>v;
-            for (int j = i + 1; j < nums.size(); j++) {
-                int num = nums[i] + nums[j];  num *= -1;
-                if (mp.find(num) != mp.end()) {
-                    for (auto s : mp[num]) {
-                        if (s > i && s > j) {
-                            v.push_back(nums[i]);
-                            v.push_back(nums[j]);
-                            v.push_back(nums[s]);
-                            st.insert(v);
-                            v.clear();
-                            while (j < nums.size() - 1&& nums[j] == nums[j + 1])j++;
-                            while (i < nums.size() -1 && nums[i] == nums[i + 1])i++;
+            if (i == 0 || (i > 0 && nums[i] != nums[i - 1])) {
+                for (int j = i + 1; j < nums.size(); j++) {
+                    int num = nums[i] + nums[j];  num *= -1;
+                    if (mp.find(num) != mp.end()) {
+                        for (auto s : mp[num]) {
+                            if (s > i && s > j) {
+                                v.push_back(nums[i]);
+                                v.push_back(nums[j]);
+                                v.push_back(nums[s]);
+                                st.insert(v);
+                                v.clear();
+                                while (j < nums.size() - 1 && nums[j] == nums[j + 1])j++;
+                                while (i < nums.size() - 1 && nums[i] == nums[i + 1])i++;
+                            }
                         }
                     }
                 }
