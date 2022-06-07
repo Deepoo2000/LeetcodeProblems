@@ -4,6 +4,6 @@ public:
         for(int i = 0; i < n; i++){
             nums1[i + m] = nums2[i];
         }
-        sort(nums1.begin(),nums1.end());
+        sort(nums1.begin(),nums1.begin() + n + m);
     }
 };
