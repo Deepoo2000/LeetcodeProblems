@@ -8,6 +8,7 @@ public:
            int count = 0;
             for(int j = 0; j < arr2.size(); j++){
                if(abs(arr1[i]-arr2[j]) > d)count++;
+                else break;
            }
             if(count == arr2.size())ans++;
         }
