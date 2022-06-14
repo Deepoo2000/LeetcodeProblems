@@ -10,12 +10,12 @@ public:
             if (mp2.find(nums1[i]) != mp2.end()) {
                 if (mp1[nums1[i]] <= mp2[nums1[i]]) {
                     int n = nums1[i];
-                    while (mp2[nums1[i]] > 0)mp2[nums1[i]]--;
+                    mp2[nums1[i]] = 0;
                     while (mp1[nums1[i]] > 0)v.push_back(n), mp1[nums1[i]]--;
                 }
                 else {
                     int n = nums1[i];
-                    while (mp1[nums1[i]] > 0)mp1[nums1[i]]--;
+                    mp1[nums1[i]] = 0;
                     while (mp2[nums1[i]] > 0)v.push_back(n), mp2[nums1[i]]--;
                 }
             }
