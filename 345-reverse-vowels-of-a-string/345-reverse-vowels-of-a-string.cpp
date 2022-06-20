@@ -1,17 +1,18 @@
 class Solution {
 public:
+    bool IsVowel(char c) {
+        c = tolower(c);
+        return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+    }
     string reverseVowels(string s) {
         int r = s.size() - 1, l = 0;
-        map<char, int> mp;
-        mp['a']++; mp['e']++; mp['i']++; mp['o']++; mp['u']++;
-        mp['A']++; mp['E']++; mp['I']++; mp['O']++; mp['U']++;
         while (l < r) {
-            if (mp.find(s[l]) != mp.end() && mp.find(s[r]) != mp.end()) {
+            if (IsVowel(s[l]) && IsVowel(s[r])) {
                 swap(s[l], s[r]);
                 l++, r--;
             }
-            if (mp.find(s[l]) == mp.end())l++;
-            if (mp.find(s[r]) == mp.end())r--;
+            if (!IsVowel(s[l]))l++;
+            if (!IsVowel(s[r]))r--;
         }
         return s;
     }
