@@ -1,21 +1,21 @@
 class Solution {
 public:
     string intToRoman(int num) {
-        vector<pair<int, string>> v  {
-            {1000, "M"},{900, "CM"}, {500, "D"}, {400, "CD"}, {100, "C"},{90, "XC"}, {50, "L"},{40, "XL"}, {10, "X"},{9, "IX"}, {5, "V"},
-            {4, "IV"},{1, "I"}
-        };        
-        int i = 0, n =v.size();
-        string ans = "";
-        while(i<n && num>0){
-            int x = num/v[i].first;
-            for(int j=0;j<x;j++)
-            {
-                ans+=v[i].second;
+        string ans;
+        int val[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        string sym[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+        
+        int i=0;
+        while(num){
+            
+            while(val[i]<=num){
+                num-=val[i];
+                ans+=sym[i];
             }
-            num = num%v[i].first;
+            
             i++;
         }
+        
         return ans;
     }
 };
