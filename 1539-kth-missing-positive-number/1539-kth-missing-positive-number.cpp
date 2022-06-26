@@ -1,14 +1,13 @@
 class Solution {
 public:
     int findKthPositive(vector<int>& arr, int k) {
-        map<int, int>mp;
-        for (int i = 0; i < arr.size(); i++) mp[arr[i]]++;
-        cout << mp.size() << endl;
-        int count = 0;
-        for (int j = 1; j <= arr.size() + k; j++) {
-            if (mp.find(j) == mp.end())count++;
-            if (count == k)return j;
-        }     
-        return 0;
+       int r = arr.size() - 1, l  = 0;
+        int md = 0;
+        while(l <= r){
+            md = l + (r - l) / 2;
+            if(arr[md] - md - 1 < k)l = md + 1; 
+            else r = md - 1;
+        }
+        return k + l;
     }
 };
