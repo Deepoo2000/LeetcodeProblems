@@ -1,6 +1,9 @@
 class Solution {
 public:
     bool checkOnesSegment(string s) {
-        return (s.find("01")== std::string::npos);
+        for(int i = 0; i < s.size() - 1; i++){
+            if(s[i] == '0' && s[i + 1] =='1')return 0;
+        }
+        return 1;
     }
 };
