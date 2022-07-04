@@ -4,9 +4,12 @@ public:
         vector<int>v;
         for(int i = 0; i < matrix.size(); i++){
             for(int j = 0; j < matrix[i].size(); j++){
-                if(matrix[i][j] == target)return 1;
+                v.push_back(matrix[i][j]);
             }
         }
-        return 0;
+        //best
+        int index = lower_bound(v.begin(), v.end(), target) - v.begin();
+        if(index >= v.size()) index--;
+        return (v[index] == target);
     }
 };
