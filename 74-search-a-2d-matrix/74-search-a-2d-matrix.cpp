@@ -7,9 +7,8 @@ public:
                 v.push_back(matrix[i][j]);
             }
         }
-        //best
         int index = lower_bound(v.begin(), v.end(), target) - v.begin();
-        if(index >= v.size()) index--;
+        if(index >= v.size()) index-=1;
         return (v[index] == target);
     }
 };
