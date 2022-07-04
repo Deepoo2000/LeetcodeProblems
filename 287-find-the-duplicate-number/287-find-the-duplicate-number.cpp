@@ -1,10 +1,10 @@
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
-        map<long long, int>mp;
+        long long freq[100009] = {0};
         for(int i = 0; i < nums.size(); i++){
-            mp[nums[i]]++;
-            if(mp[nums[i]] >= 2)return nums[i];
+            freq[nums[i]]++;
+            if(freq[nums[i]] >= 2)return nums[i];
         }
         return 0;
     }
