@@ -4,6 +4,8 @@ public:
         int target = 0;
         for (int i = 0; i < nums.size(); i++)target += nums[i];
         target -= x;
+        if(target < 0) return -1;
+        if(target == 0) return nums.size();
         int e = 0, s = 0, n = nums.size();
         int sum = 0;
         int mx = -1;
