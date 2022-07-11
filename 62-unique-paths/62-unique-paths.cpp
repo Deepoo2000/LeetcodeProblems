@@ -8,6 +8,7 @@ public:
         dp[r][c] = solve(m, n, r + 1, c, dp) + solve(m, n, r, c + 1, dp);
         //cout<<dp[r][c]<<" ";
         }
+        else return dp[r][c];
         //cout<<endl;
         return dp[r][c];
     }
