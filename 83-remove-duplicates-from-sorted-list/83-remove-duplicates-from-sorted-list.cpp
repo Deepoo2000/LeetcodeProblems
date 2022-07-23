@@ -12,16 +12,12 @@ class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
         if (head == NULL || head->next == NULL)return head;
-        ListNode* cur = head, *prev;
-        unordered_map<int, int>mp;
-        while (cur != NULL) {
-            if (mp[cur->val] == 0) {
-                mp[cur->val]++;
-                prev = cur;
-                cur = cur->next;
+        ListNode* cur = head;
+        while (cur->next) {
+            if (cur->val == cur->next->val) {
+                cur->next = cur->next->next;
             }
             else {
-                prev->next = cur->next;
                 cur = cur->next;
             }
         }
