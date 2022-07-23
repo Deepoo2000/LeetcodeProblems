@@ -13,7 +13,7 @@ public:
     ListNode* deleteDuplicates(ListNode* head) {
         if (head == NULL || head->next == NULL)return head;
         ListNode* cur = head, *prev;
-        map<int, int>mp;
+        unordered_map<int, int>mp;
         while (cur != NULL) {
             if (mp[cur->val] == 0) {
                 mp[cur->val]++;
