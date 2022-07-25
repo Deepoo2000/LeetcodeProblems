@@ -10,17 +10,19 @@
  */
 class Solution {
 public:
+    ListNode* front = NULL;
+    int ans = 0;
+    void solve(ListNode *head){
+        if(head){
+            solve(head->next);
+            ans = max(ans, front->val + head->val);
+            front = front->next;
+        }
+        
+    }
     int pairSum(ListNode* head) {
-        int mx = 0;
-        vector<int>v;
-        while(head != NULL){
-            v.push_back(head->val);
-            head = head->next;
-        }
-        int index = v.size() - 1;
-        for(int i = 0; i < v.size() / 2; i++){
-            mx = max(v[i] + v[index--], mx);
-        }
-        return mx;
+        front = head;
+        solve(head);
+        return ans;
     }
 };
