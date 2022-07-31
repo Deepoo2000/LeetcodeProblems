@@ -12,9 +12,7 @@ class Solution {
 public:
     ListNode* reverseBetween(ListNode* head, int left, int right) {
         if(!head || !head->next) return head;
-        ListNode* cur = head, *prev = head;
-        int count = 0;
-        while(prev)count++, prev = prev->next;
+        ListNode* cur = head;
         int bet = right - left + 1;
         left--;
         ListNode *ans = NULL, *last = ans;
