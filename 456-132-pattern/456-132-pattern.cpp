@@ -9,6 +9,5 @@ public:
             st.push(nums[i]);
         }
         return false;
-        return false;
     }
 };
