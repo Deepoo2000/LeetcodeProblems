@@ -10,7 +10,8 @@ public:
                 mx = mp[nums[i]];
             }
         }
-        set<int>st, mn;
+        set<int>st;
+        int mn = INT_MAX;
         for (int i = 0; i < nums.size(); i++) {
             if (mx == mp[nums[i]]) {
                 st.insert(nums[i]);
@@ -24,8 +25,8 @@ public:
                 if (nums[i] == n && f)index1 = i, f = 0;
                 if (nums[i] == n)index2 = i;
             }
-            mn.insert((index2 - index1 + 1));
+            mn= min(mn,(index2 - index1 + 1));
         }
-        return *mn.begin();
+        return mn;
     }
 };
