@@ -1,17 +1,47 @@
 class Solution {
 public:
     int trap(vector<int>& height) {
-        int n = height.size();
-        vector<int>left(n), right(n);
-        left[0] = height[0];
-        for (int i = 1; i < n; i++)left[i] = max(left[i - 1], height[i]);
-        right[n - 1] = height[n - 1];
-        for (int i = n - 2; i >= 0; i--)right[i] = max(right[i + 1], height[i]);
-        int ans = 0;
-        for (int i = 0; i < n; i++) {
-            int m = min(right[i], left[i]) - height[i];
-            if (m)ans += m;
+        if (height.size() == 1 || height.size() == 2) return 0;
+        int sum = 0, j = 0, i = 0;
+        vector<int>v;
+        for (i = 0; i < height.size();) {
+            if (height[i]) {
+                j = i;
+                i += 1;
+                int ans = 0;
+                while (i < height.size() && height[j] > height[i]) {
+                    ans += height[j] - height[i];
+                    i++;
+                }
+                if (i >= height.size()) {
+                    break;
+                }
+                else sum += ans;
+            }
+            else i++;
         }
-        return ans;
+       /// cout << "Done" << endl;
+        if (j < height.size() - 1) {
+            for (int i = height.size() - 1; i >= j; i--)v.push_back(height[i]);
+            //for (int i = 0; i < v.size(); i++)cout << v[i] << " ";
+            j = 0;
+            for (int i = 0; i < v.size();) {
+                if (v[i]) {
+                    j = i;
+                    i += 1;
+                    int ans = 0;
+                    while (i < v.size() && v[j] > v[i]) {
+                        ans += v[j] - v[i];
+                        i++;
+                    }
+                    if (i >= v.size()) {
+                        break;
+                    }
+                    else sum += ans;
+                }
+                else i++;
+            }
+        }
+        return sum;
     }
 };
